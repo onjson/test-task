@@ -1,5 +1,7 @@
+import Config from './Config';
 import SourceContainer from './source';
-import OptionsContainer from './options';
+import Options from './options';
 import SNMPOptionsContainer from './snmp-options';
 
-export { SourceContainer, OptionsContainer, SNMPOptionsContainer };
+export { SourceContainer, Options, SNMPOptionsContainer };
+export default Config;

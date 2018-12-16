@@ -17,6 +17,7 @@ class VersionConfig extends PureComponent {
 
   render = () => {
     const { isOpen } = this.state;
+    const { version } = this.props;
 
     return (
       <Segment inverted>
@@ -30,43 +31,49 @@ class VersionConfig extends PureComponent {
               <Form.Field>
                 <Field name="version" component={RFRadio} options={VERSIONS} />
               </Form.Field>
-              <Field
-                name="readCommunity"
-                component={RFInput}
-                label="Read Community"
-                size="small"
-              />
-              <Field
-                name="securityOptions"
-                component={RFSelect}
-                placeholder="Select security option"
-                fluid
-                selection
-                options={SECURITY_OPTIONS}
-              />
-              <Field
-                name="contextName"
-                component={RFInput}
-                label="Context Name"
-                size="small"
-              />
-              <Field
-                name="contextEngineID"
-                component={RFInput}
-                label="Context Engine ID"
-                size="small"
-              />
-              <Field
-                name="authenticationAlgorithm.code"
-                component={RFRadio}
-                options={ALGORITHMS}
-              />
-              <Field
-                name="authenticationAlgorithm.password"
-                component={RFInput}
-                label="Authentication Password"
-                size="small"
-              />
+              {version && (
+                <Field
+                  name="readCommunity"
+                  component={RFInput}
+                  label="Read Community"
+                  size="small"
+                />
+              )}
+              {version === '3' && (
+                <React.Fragment>
+                  <Field
+                    name="securityOptions"
+                    component={RFSelect}
+                    placeholder="Select security option"
+                    fluid
+                    selection
+                    options={SECURITY_OPTIONS}
+                  />
+                  <Field
+                    name="contextName"
+                    component={RFInput}
+                    label="Context Name"
+                    size="small"
+                  />
+                  <Field
+                    name="contextEngineID"
+                    component={RFInput}
+                    label="Context Engine ID"
+                    size="small"
+                  />
+                  <Field
+                    name="authenticationAlgorithm.code"
+                    component={RFRadio}
+                    options={ALGORITHMS}
+                  />
+                  <Field
+                    name="authenticationAlgorithm.password"
+                    component={RFInput}
+                    label="Authentication Password"
+                    size="small"
+                  />
+                </React.Fragment>
+              )}
             </Form>
           </Accordion.Content>
         </Accordion>

@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Form } from 'semantic-ui-react';
+import { Form, Message } from 'semantic-ui-react';
 import { reduxForm, Field } from 'redux-form';
 import { SOURCES } from '../../constants';
 
 import { RFSelect } from '../shared';
 import { FileLoader, IPInput, IPRange } from './index';
 
-const SourceForm = () => (
-  <Form inverted onSubmit={(e) => e.preventDefault()}>
+const SourceForm = ({ source, ipRangeError }) => (
+  <Form error={!!ipRangeError} inverted onSubmit={(e) => e.preventDefault()}>
     <Field
       name="inputType"
       component={RFSelect}
@@ -17,9 +17,12 @@ const SourceForm = () => (
       selection
       options={SOURCES}
     />
-    <FileLoader />
-    <IPInput name="ipAdress" label="IP" />
-    <IPRange />
+    {source === 'CSV' && <FileLoader />}
+    {source === 'IP' && <IPInput name="ipAdress" label="IP" />}
+    {source === 'IP Range' && <IPRange />}
+    {ipRangeError && (
+      <Message error header="IP Range Error" content={ipRangeError} />
+    )}
   </Form>
 );
 

@@ -15,6 +15,7 @@ class SNMPOptions extends PureComponent {
 
   render = () => {
     const { isOpen } = this.state;
+    const { version } = this.props;
 
     return (
       <Segment inverted>
@@ -24,7 +25,7 @@ class SNMPOptions extends PureComponent {
             Selected Options
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
-            <VersionConfig />
+            <VersionConfig version={version} />
           </Accordion.Content>
         </Accordion>
       </Segment>

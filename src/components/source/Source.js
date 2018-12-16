@@ -15,16 +15,17 @@ class Source extends PureComponent {
 
   render = () => {
     const { isOpen } = this.state;
+    const { source, ipRangeError } = this.props;
 
     return (
       <Segment inverted>
         <Accordion inverted>
           <Accordion.Title active={isOpen} onClick={this.handleClick}>
             <Icon name="dropdown" />
-            What is a dog?
+            Discovery Source
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
-            <SourceForm />
+            <SourceForm source={source} ipRangeError={ipRangeError} />
           </Accordion.Content>
         </Accordion>
       </Segment>
