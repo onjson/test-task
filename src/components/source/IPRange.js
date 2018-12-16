@@ -8,8 +8,8 @@ class IPRange extends PureComponent {
 
   render = () => (
     <React.Fragment>
-      <IPInput label="Starting IP Address" />
-      <IPInput label="Ending IP Address" />
+      <IPInput name="startIPAddress" label="Starting IP Address" />
+      <IPInput name="endIPAddress" label="Ending IP Address" />
     </React.Fragment>
   );
 }

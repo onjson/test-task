@@ -1,8 +1,10 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Accordion, Form, Icon, Radio } from 'semantic-ui-react';
+import { Segment, Accordion, Form, Icon } from 'semantic-ui-react';
+import { reduxForm, Field } from 'redux-form';
 
-import { VERSIONS, ALGORITHMS } from '../../constants';
+import { RFRadio, RFInput, RFSelect } from '../shared';
+import { VERSIONS, ALGORITHMS, SECURITY_OPTIONS } from '../../constants';
 
 class VersionConfig extends PureComponent {
   state = {
@@ -26,22 +28,45 @@ class VersionConfig extends PureComponent {
           <Accordion.Content active={isOpen}>
             <Form inverted>
               <Form.Field>
-                {VERSIONS.map(({ label, value, name }) => (
-                  <Radio key={label} label={label} name={name} value={value} />
-                ))}
+                <Field name="version" component={RFRadio} options={VERSIONS} />
               </Form.Field>
-              <Form.Input label="Read Community" size="small" />
-              <Form.Select
+              <Field
+                name="readCommunity"
+                component={RFInput}
+                label="Read Community"
+                size="small"
+              />
+              <Field
+                name="securityOptions"
+                component={RFSelect}
+                placeholder="Select security option"
                 fluid
                 selection
-                options={[{ text: 'hello', value: 'hello' }]}
+                options={SECURITY_OPTIONS}
               />
-              <Form.Input label="Context Name" size="small" />
-              <Form.Input label="Context Engine ID" size="small" />
-              {ALGORITHMS.map(({ label, value, name }) => (
-                <Radio key={label} label={label} name={name} value={value} />
-              ))}
-              <Form.Input label="Authentication Password" size="small" />
+              <Field
+                name="contextName"
+                component={RFInput}
+                label="Context Name"
+                size="small"
+              />
+              <Field
+                name="contextEngineID"
+                component={RFInput}
+                label="Context Engine ID"
+                size="small"
+              />
+              <Field
+                name="authenticationAlgorithm.code"
+                component={RFRadio}
+                options={ALGORITHMS}
+              />
+              <Field
+                name="authenticationAlgorithm.password"
+                component={RFInput}
+                label="Authentication Password"
+                size="small"
+              />
             </Form>
           </Accordion.Content>
         </Accordion>
@@ -50,4 +75,6 @@ class VersionConfig extends PureComponent {
   };
 }
 
-export default VersionConfig;
+export default reduxForm({
+  form: 'snmpConfig',
+})(VersionConfig);

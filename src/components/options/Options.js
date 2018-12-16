@@ -1,28 +1,11 @@
 import React, { PureComponent } from 'react';
-import { Segment, Accordion, Icon, Checkbox, Form } from 'semantic-ui-react';
+import { Segment, Accordion, Icon } from 'semantic-ui-react';
 
-const options = [
-  {
-    label: 'SNMP',
-    value: 'SNMP',
-  },
-  {
-    label: 'Link',
-    value: 'Link',
-  },
-  {
-    label: 'VLAN',
-    value: 'VLAN',
-  },
-  {
-    label: 'Ports',
-    value: 'Ports',
-  },
-];
+import { OptionsForm } from './index';
 
 class Options extends PureComponent {
   state = {
-    isOpen: false,
+    isOpen: true,
   };
 
   handleClick = () => {
@@ -40,13 +23,7 @@ class Options extends PureComponent {
             Discovery Options
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
-            <Form inverted>
-              {options.map(({ label, value }) => (
-                <Form.Field key={value}>
-                  <Checkbox label={label} />
-                </Form.Field>
-              ))}
-            </Form>
+            <OptionsForm />
           </Accordion.Content>
         </Accordion>
       </Segment>

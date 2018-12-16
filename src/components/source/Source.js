@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
-import { Segment, Accordion, Icon, Form } from 'semantic-ui-react';
+import { Segment, Accordion, Icon } from 'semantic-ui-react';
 
-import { SourceSelector, FileLoader, IPInput, IPRange } from './index';
+import { SourceForm } from './index';
 
 class Source extends PureComponent {
   state = {
@@ -24,12 +24,7 @@ class Source extends PureComponent {
             What is a dog?
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
-            <Form inverted onSubmit={(e) => e.preventDefault()}>
-              <SourceSelector />
-              <FileLoader />
-              <IPInput label="IP" />
-              <IPRange />
-            </Form>
+            <SourceForm />
           </Accordion.Content>
         </Accordion>
       </Segment>
