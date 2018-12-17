@@ -6,6 +6,8 @@ import { reduxForm, Field } from 'redux-form';
 import { RFRadio, RFInput, RFSelect } from '../shared';
 import { VERSIONS, ALGORITHMS, SECURITY_OPTIONS } from '../../constants';
 
+import styles from './VersionConfig.module.css';
+
 class VersionConfig extends PureComponent {
   state = {
     isOpen: true,
@@ -22,13 +24,17 @@ class VersionConfig extends PureComponent {
     return (
       <Segment inverted>
         <Accordion inverted>
-          <Accordion.Title active={isOpen} onClick={this.handleClick}>
+          <Accordion.Title
+            active={isOpen}
+            onClick={this.handleClick}
+            className={styles.title}
+          >
             <Icon name="dropdown" />
             SNMP Version
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
             <Form inverted>
-              <Form.Field>
+              <Form.Field className={styles.radioGroup}>
                 <Field name="version" component={RFRadio} options={VERSIONS} />
               </Form.Field>
               {version && (
@@ -61,11 +67,13 @@ class VersionConfig extends PureComponent {
                     label="Context Engine ID"
                     size="small"
                   />
-                  <Field
-                    name="authenticationAlgorithm.code"
-                    component={RFRadio}
-                    options={ALGORITHMS}
-                  />
+                  <Form.Field className={styles.radioGroup}>
+                    <Field
+                      name="authenticationAlgorithm.code"
+                      component={RFRadio}
+                      options={ALGORITHMS}
+                    />
+                  </Form.Field>
                   <Field
                     name="authenticationAlgorithm.password"
                     component={RFInput}

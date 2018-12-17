@@ -3,7 +3,13 @@ import { Container, Grid } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
 
-import { SourceContainer, Options, SNMPOptionsContainer } from './index';
+import {
+  SourceContainer,
+  Options,
+  SNMPOptionsContainer,
+  Steps,
+  Footer,
+} from './index';
 
 import styles from './Config.module.css';
 
@@ -11,6 +17,9 @@ const Config = ({ snmp }) => (
   <div className={styles.main}>
     <Container>
       <Grid>
+        <Grid.Row>
+          <Steps />
+        </Grid.Row>
         <Grid.Row columns={2}>
           <Grid.Column floated="left" width={7}>
             <SourceContainer />
@@ -26,6 +35,11 @@ const Config = ({ snmp }) => (
             </Grid.Column>
           </Grid.Row>
         )}
+        <Grid.Row>
+          <Grid.Column>
+            <Footer />
+          </Grid.Column>
+        </Grid.Row>
       </Grid>
     </Container>
   </div>

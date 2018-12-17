@@ -3,3 +3,98 @@
 body {
   background-color: #1E272E;
 }
+
+.ui.inverted.form input[type=text] {
+  background: #1E262E;
+  color: #FCFAEE;
+}
+
+.ui.segment {
+  padding: 0 1em 1em 1em
+}
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+  background: #1E262E;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.ui.accordion .accordion {
+  margin: 0;
+}
+
+.ui.steps {
+  display: flex;
+  margin: auto;
+  width: 75%;
+}
+
+.ui.steps .custom-step {
+  background: #4C5257;
+  padding: .1em 0;
+  border-right: 0;
+}
+
+.ui.steps .custom-step.active {
+  background: #fff;
+}
+
+.ui.steps .custom-step.completed {
+  background: #67AF6C;
+}
+
+.ui.ordered.steps .custom-step:before {
+  display: none;
+}
+
+.ui.ordered.steps .custom-step:after {
+  display: none;
+}
+
+.ui.ordered.steps .custom-step .content {
+  position: absolute;
+  color: #fff;
+  bottom: -7px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ui.steps .custom-step .title {
+  font-weight: normal;
+  font-size: 1em;
+  color: #4C5257;
+}
+
+.ui.steps .custom-step .title.active {
+  color: #fff;
+}
+
+.ui.steps .custom-step .title.completed {
+  color: #67AF6C;
+}
+
+.ui.steps .custom-step .description {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  color: #fff;
+  background: #4C5257;
+  border-radius: 50%;
+  font-size: .7em;
+}
+
+.ui.steps .custom-step .description.active {
+  background: #fff;
+  color: #000;
+}
+
+.ui.steps .custom-step .description.completed {
+  background: #67AF6C;
+  color: #000;
+}
+
+.ui.steps .step .title~.description {
+  margin-top: 1em;
+}

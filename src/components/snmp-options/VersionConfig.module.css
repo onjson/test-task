@@ -1,0 +1,9 @@
+.radioGroup {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  color: #55839F;
+  font-weight: 500
+}
