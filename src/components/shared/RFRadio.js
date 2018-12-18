@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Radio } from 'semantic-ui-react';
 
-export const RFRadio = ({ input, options }) => (
-  <React.Fragment>
+export const RFRadio = ({ input, options, wrapperClassName }) => (
+  <div className={wrapperClassName}>
     {options.map(({ id, label, value }) => (
       <Radio
         key={id}
@@ -14,7 +14,7 @@ export const RFRadio = ({ input, options }) => (
         checked={value === input.value}
       />
     ))}
-  </React.Fragment>
+  </div>
 );
 
 RFRadio.propTypes = {
@@ -25,6 +25,11 @@ RFRadio.propTypes = {
       value: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  wrapperClassName: PropTypes.string,
+};
+
+RFRadio.defaultProps = {
+  wrapperClassName: '',
 };
 
 export default RFRadio;

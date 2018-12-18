@@ -32,12 +32,17 @@ class VersionConfig extends PureComponent {
             className={styles.title}
           >
             <Icon name="dropdown" />
-            SNMP Version
+            <span className={styles.label}>SNMP Version</span>
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
             <Form inverted>
-              <Form.Field className={styles.radioGroup}>
-                <Field name="version" component={RFRadio} options={VERSIONS} />
+              <Form.Field>
+                <Field
+                  name="version"
+                  component={RFRadio}
+                  options={VERSIONS}
+                  wrapperClassName={styles.radioGroup}
+                />
               </Form.Field>
               {version && (
                 <Field
@@ -69,8 +74,12 @@ class VersionConfig extends PureComponent {
                     label="Context Engine ID"
                     size="small"
                   />
-                  <Form.Field className={styles.radioGroup}>
+                  <Form.Field>
+                    <label className={styles.label}>
+                      Authentication Algorithm
+                    </label>
                     <Field
+                      wrapperClassName={styles.radioGroup}
                       name={`snmpv${version}.authenticationAlgorithm.code`}
                       component={RFRadio}
                       options={ALGORITHMS}
