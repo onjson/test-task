@@ -2,6 +2,7 @@
   "name": "relatedata-task",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://onjson.github.io/test-task",
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash.get": "^4.4.2",
@@ -24,10 +25,13 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
+    "gh-pages": "^2.0.1",
     "lint-staged": "^7.0.0",
     "prettier": "^1.12.1"
   },
   "scripts": {
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build",
     "precommit": "lint-staged",
     "start": "react-scripts start",
     "build": "react-scripts build",
