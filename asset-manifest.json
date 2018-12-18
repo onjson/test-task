@@ -1,16 +1,16 @@
 {
-  "main.css": "/test-task/static/css/main.aee5fed9.chunk.css",
-  "main.js": "/test-task/static/js/main.de74fcfa.chunk.js",
-  "main.js.map": "/test-task/static/js/main.de74fcfa.chunk.js.map",
+  "main.css": "/test-task/static/css/main.a2018e6d.chunk.css",
+  "main.js": "/test-task/static/js/main.cb246224.chunk.js",
+  "main.js.map": "/test-task/static/js/main.cb246224.chunk.js.map",
   "static/css/1.dfcede7b.chunk.css": "/test-task/static/css/1.dfcede7b.chunk.css",
-  "static/js/1.11ad8b49.chunk.js": "/test-task/static/js/1.11ad8b49.chunk.js",
-  "static/js/1.11ad8b49.chunk.js.map": "/test-task/static/js/1.11ad8b49.chunk.js.map",
+  "static/js/1.4b165287.chunk.js": "/test-task/static/js/1.4b165287.chunk.js",
+  "static/js/1.4b165287.chunk.js.map": "/test-task/static/js/1.4b165287.chunk.js.map",
   "runtime~main.js": "/test-task/static/js/runtime~main.a792770b.js",
   "runtime~main.js.map": "/test-task/static/js/runtime~main.a792770b.js.map",
   "static/media/index.css": "/test-task/static/media/brand-icons.a1a749e8.svg",
+  "static/css/main.a2018e6d.chunk.css.map": "/test-task/static/css/main.a2018e6d.chunk.css.map",
   "static/css/1.dfcede7b.chunk.css.map": "/test-task/static/css/1.dfcede7b.chunk.css.map",
-  "static/css/main.aee5fed9.chunk.css.map": "/test-task/static/css/main.aee5fed9.chunk.css.map",
   "index.html": "/test-task/index.html",
-  "precache-manifest.389bb3dd963742db8da2810cb5898aac.js": "/test-task/precache-manifest.389bb3dd963742db8da2810cb5898aac.js",
+  "precache-manifest.2065dbcb79a809f24c5b180fe719a514.js": "/test-task/precache-manifest.2065dbcb79a809f24c5b180fe719a514.js",
   "service-worker.js": "/test-task/service-worker.js"
 }
