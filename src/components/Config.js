@@ -1,15 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Container, Grid, Responsive } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import get from 'lodash.get';
 
-import {
-  SourceContainer,
-  Options,
-  SNMPOptionsContainer,
-  Steps,
-  Footer,
-} from './index';
+import { Source, Options, SNMPOptions, Steps, Footer } from './index';
 import { utils } from '../helpers';
 
 const Config = ({ snmp, isSourceCompleted }) => (
@@ -20,7 +15,7 @@ const Config = ({ snmp, isSourceCompleted }) => (
       </Responsive>
       <Grid.Row columns={2}>
         <Grid.Column floated="left" mobile={16} tablet={8} computer={7}>
-          <SourceContainer />
+          <Source />
         </Grid.Column>
         <Grid.Column floated="right" mobile={16} tablet={8} computer={7}>
           {isSourceCompleted && <Options />}
@@ -29,7 +24,7 @@ const Config = ({ snmp, isSourceCompleted }) => (
       {isSourceCompleted && snmp && (
         <Grid.Row>
           <Grid.Column>
-            <SNMPOptionsContainer />
+            <SNMPOptions />
           </Grid.Column>
         </Grid.Row>
       )}
@@ -41,6 +36,11 @@ const Config = ({ snmp, isSourceCompleted }) => (
     </Grid>
   </Container>
 );
+
+Config.propTypes = {
+  isSourceCompleted: PropTypes.bool.isRequired,
+  snmp: PropTypes.bool.isRequired,
+};
 
 const mapStateToProps = ({ form }) => ({
   isSourceCompleted: utils.checkThatSourceCompleted(form),

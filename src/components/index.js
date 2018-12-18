@@ -1,9 +1,9 @@
 import Config from './Config';
-import SourceContainer from './source';
+import Source from './source';
 import Options from './options';
-import SNMPOptionsContainer from './snmp-options';
+import SNMPOptions from './snmp-options';
 import Steps from './steps';
 import Footer from './footer';
 
-export { SourceContainer, Options, SNMPOptionsContainer, Steps, Footer };
+export { Source, Options, SNMPOptions, Steps, Footer };
 export default Config;

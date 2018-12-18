@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Accordion, Form, Icon } from 'semantic-ui-react';
 import { reduxForm, Field } from 'redux-form';
+import { connect } from 'react-redux';
+import get from 'lodash.get';
 
 import { RFRadio, RFInput, RFSelect } from '../shared';
 import { VERSIONS, ALGORITHMS, SECURITY_OPTIONS } from '../../constants';
@@ -90,7 +92,21 @@ class VersionConfig extends PureComponent {
   };
 }
 
+VersionConfig.propTypes = {
+  version: PropTypes.string,
+};
+
+VersionConfig.defaultProps = {
+  version: null,
+};
+
+const mapStateToProps = (state) => ({
+  version: get(state, 'form.snmpConfig.values.version', null),
+});
+
+const ConnectedVersionConfig = connect(mapStateToProps)(VersionConfig);
+
 export default reduxForm({
   form: 'snmpConfig',
   destroyOnUnmount: false,
-})(VersionConfig);
+})(ConnectedVersionConfig);

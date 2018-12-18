@@ -13,8 +13,8 @@ import styles from './Footer.module.css';
 
 // eslint-disable-next-line
 const Footer = ({forms, open, config, resetForms, openModal, closeModal}) =>  {
-  const reset = () => {
-    Object.keys(this.props.forms).forEach((name) => resetForms(name));
+  const resetAll = () => {
+    Object.keys(forms).forEach((name) => resetForms(name));
   };
 
   const onOpenModal = () => {
@@ -27,20 +27,28 @@ const Footer = ({forms, open, config, resetForms, openModal, closeModal}) =>  {
 
   return (
     <div className={styles.wrapper}>
-      <Button floated="left" onClick={reset}>
+      <Button floated="left" onClick={resetAll}>
         Clear
       </Button>
       <Button floated="right" color="green" onClick={onOpenModal}>
         Discover
       </Button>
-      <ConfigModal
-        open={open}
-        data={config}
-        onClose={onCloseModal}
-        size="small"
-      />
+      <ConfigModal open={open} data={config} onClose={onCloseModal} />
     </div>
   );
+};
+
+Footer.propTypes = {
+  forms: PropTypes.object.isRequired,
+  config: PropTypes.object,
+  open: PropTypes.bool.isRequired,
+  resetForms: PropTypes.func.isRequired,
+  openModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
+
+Footer.defaultProps = {
+  config: null,
 };
 
 const mapStateToProps = ({ form, discover: { open, config } }) => ({

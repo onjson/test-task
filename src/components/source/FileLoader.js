@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { Button } from 'semantic-ui-react';
 
 import styles from './FileLoader.module.css';
@@ -20,9 +19,6 @@ class FileLoader extends PureComponent {
 
     reader.onloadend = () => {
       this.props.input.onChange(file.name);
-      // this.setState({
-      //   fileName: file.name,
-      // });
     };
 
     if (file instanceof Blob) {

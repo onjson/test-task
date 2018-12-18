@@ -1,24 +1,28 @@
-import React, { PureComponent } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 
 import { RFInput } from '../shared';
 import { validators } from '../../helpers';
 
-class IPIput extends PureComponent {
-  Label = (props) => (
-    <span className={props.className}>{this.props.label}</span>
-  );
+const IPIput = ({ label, name }) => (
+  <Field
+    name={name}
+    label={label}
+    validate={validators.ip}
+    size="small"
+    component={RFInput}
+  />
+);
 
-  render = () => (
-    <Field
-      name={this.props.name}
-      label={this.props.label}
-      validate={validators.ip}
-      size="small"
-      component={RFInput}
-    />
-  );
-}
+IPIput.propTypes = {
+  name: PropTypes.string,
+  label: PropTypes.string,
+};
+
+IPIput.defaultProps = {
+  name: '',
+  label: '',
+};
 
 export default IPIput;

@@ -14,6 +14,22 @@ const message =
   'Starting IP address cannot be larger than the Ending IP Address.';
 
 class IPRange extends PureComponent {
+  static propTypes = {
+    startIP: PropTypes.string,
+    endIP: PropTypes.string,
+    isValidStartIP: PropTypes.bool,
+    isValidEndIP: PropTypes.bool,
+    customValidateFailure: PropTypes.func.isRequired,
+    customValidateSuccess: PropTypes.func.isRequired,
+  };
+
+  static defaultProps = {
+    startIP: null,
+    endIP: null,
+    isValidStartIP: false,
+    isValidEndIP: false,
+  };
+
   componentDidUpdate = () => {
     const { isValidStartIP, isValidEndIP, startIP, endIP } = this.props;
 

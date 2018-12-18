@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Step } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import get from 'lodash.get';
 import classnames from 'classnames';
 
 import { utils } from '../../helpers';
@@ -91,6 +90,14 @@ const Steps = ({ step }) => (
     </Step>
   </Step.Group>
 );
+
+Step.propTypes = {
+  step: PropTypes.number,
+};
+
+Step.defaultProps = {
+  step: null,
+};
 
 const mapStateToProps = ({ form, discover: { open } }) => {
   const step = utils.getStep(form, open);

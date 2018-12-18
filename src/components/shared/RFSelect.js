@@ -11,4 +11,14 @@ const RFSelect = ({ input, meta, ...rest }) => (
   />
 );
 
+RFSelect.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      text: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
 export default RFSelect;

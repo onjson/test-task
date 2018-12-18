@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import PropTypes from 'prop-types';
 import { Segment, Accordion, Icon } from 'semantic-ui-react';
 
 import { VersionConfig } from './index';
@@ -15,7 +14,6 @@ class SNMPOptions extends PureComponent {
 
   render = () => {
     const { isOpen } = this.state;
-    const { version } = this.props;
 
     return (
       <Segment inverted>
@@ -25,7 +23,7 @@ class SNMPOptions extends PureComponent {
             Selected Options
           </Accordion.Title>
           <Accordion.Content active={isOpen}>
-            <VersionConfig version={version} />
+            <VersionConfig />
           </Accordion.Content>
         </Accordion>
       </Segment>

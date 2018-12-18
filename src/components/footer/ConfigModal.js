@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Modal } from 'semantic-ui-react';
 import ReactJson from 'react-json-view';
 
@@ -18,5 +19,17 @@ const ConfigModal = ({ data, ...rest }) => (
     </Modal.Content>
   </Modal>
 );
+
+ConfigModal.propTypes = {
+  open: PropTypes.bool.isRequired,
+  config: PropTypes.object,
+  onClose: PropTypes.func.isRequired,
+  size: PropTypes.string,
+};
+
+ConfigModal.defaultProps = {
+  config: null,
+  size: 'small',
+};
 
 export default ConfigModal;

@@ -1,10 +1,22 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { Segment, Accordion, Icon } from 'semantic-ui-react';
+import { connect } from 'react-redux';
+import get from 'lodash.get';
 
 import { SourceForm } from './index';
 
 class Source extends PureComponent {
+  static propTypes = {
+    source: PropTypes.string,
+    ipRangeError: PropTypes.string,
+  };
+
+  static defaultProps = {
+    source: null,
+    ipRangeError: null,
+  };
+
   state = {
     isOpen: true,
   };
@@ -33,4 +45,9 @@ class Source extends PureComponent {
   };
 }
 
-export default Source;
+const mapStateToProps = (state) => ({
+  source: get(state, 'form.source.values.inputType', null),
+  ipRangeError: get(state, 'form.source.syncErrors.ipRange', null),
+});
+
+export default connect(mapStateToProps)(Source);

@@ -17,4 +17,14 @@ export const RFRadio = ({ input, options }) => (
   </React.Fragment>
 );
 
+RFRadio.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+    }),
+  ).isRequired,
+};
+
 export default RFRadio;

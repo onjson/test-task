@@ -26,6 +26,16 @@ const SourceForm = ({ source, ipRangeError }) => (
   </Form>
 );
 
+SourceForm.propTypes = {
+  source: PropTypes.string,
+  ipRangeError: PropTypes.string,
+};
+
+SourceForm.defaultProps = {
+  source: null,
+  ipRangeError: null,
+};
+
 export default reduxForm({
   form: 'source',
 })(SourceForm);

@@ -13,4 +13,12 @@ const RFCheckbox = ({ input, label, meta, ...rest }) => (
   </Form.Field>
 );
 
+RFCheckbox.propTypes = {
+  label: PropTypes.string,
+};
+
+RFCheckbox.defaultProps = {
+  label: '',
+};
+
 export default RFCheckbox;
