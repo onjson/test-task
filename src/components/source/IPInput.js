@@ -3,14 +3,7 @@ import PropTypes from 'prop-types';
 import { Field } from 'redux-form';
 
 import { RFInput } from '../shared';
-
-const ip = (value) =>
-  value &&
-  !/^(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$/g.test(
-    value,
-  )
-    ? 'Invalid IP adress'
-    : undefined;
+import { validators } from '../../helpers';
 
 class IPIput extends PureComponent {
   Label = (props) => (
@@ -21,7 +14,7 @@ class IPIput extends PureComponent {
     <Field
       name={this.props.name}
       label={this.props.label}
-      validate={ip}
+      validate={validators.ip}
       size="small"
       component={RFInput}
     />

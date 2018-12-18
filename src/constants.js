@@ -57,3 +57,7 @@ export const SECURITY_OPTIONS = [
     value: 'Authentication and No Privacy',
   },
 ];
+
+export const IP = 'IP';
+export const IP_RANGE = 'IP Range';
+export const CSV = 'CSV';

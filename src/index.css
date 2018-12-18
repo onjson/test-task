@@ -2,6 +2,7 @@
 
 body {
   background-color: #1E272E;
+  padding: 2em 0
 }
 
 .ui.inverted.form input[type=text] {
@@ -22,35 +23,39 @@ body {
   margin: 0;
 }
 
-.ui.steps {
+.ui.custom-steps {
   display: flex;
   margin: auto;
   width: 75%;
 }
 
-.ui.steps .custom-step {
+.ui.custom-steps:first-child {
+  margin-top: 3em;
+}
+
+.ui.custom-steps .custom-step {
   background: #4C5257;
   padding: .1em 0;
   border-right: 0;
 }
 
-.ui.steps .custom-step.active {
+.ui.custom-steps .custom-step.active {
   background: #fff;
 }
 
-.ui.steps .custom-step.completed {
+.ui.custom-steps .custom-step.completed {
   background: #67AF6C;
 }
 
-.ui.ordered.steps .custom-step:before {
+.ui.ordered.custom-steps .custom-step:before {
   display: none;
 }
 
-.ui.ordered.steps .custom-step:after {
+.ui.ordered.custom-steps .custom-step:after {
   display: none;
 }
 
-.ui.ordered.steps .custom-step .content {
+.ui.ordered.custom-steps .custom-step .content {
   position: absolute;
   color: #fff;
   bottom: -7px;
@@ -59,21 +64,21 @@ body {
   align-items: center;
 }
 
-.ui.steps .custom-step .title {
+.ui.custom-steps .custom-step .title {
   font-weight: normal;
   font-size: 1em;
   color: #4C5257;
 }
 
-.ui.steps .custom-step .title.active {
+.ui.custom-steps .custom-step .title.active {
   color: #fff;
 }
 
-.ui.steps .custom-step .title.completed {
+.ui.custom-steps .custom-step .title.completed {
   color: #67AF6C;
 }
 
-.ui.steps .custom-step .description {
+.ui.custom-steps .custom-step .description {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,16 +90,16 @@ body {
   font-size: .7em;
 }
 
-.ui.steps .custom-step .description.active {
+.ui.custom-steps .custom-step .description.active {
   background: #fff;
   color: #000;
 }
 
-.ui.steps .custom-step .description.completed {
+.ui.custom-steps .custom-step .description.completed {
   background: #67AF6C;
   color: #000;
 }
 
-.ui.steps .step .title~.description {
+.ui.custom-steps .step .title~.description {
   margin-top: 1em;
 }

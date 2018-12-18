@@ -39,7 +39,7 @@ class VersionConfig extends PureComponent {
               </Form.Field>
               {version && (
                 <Field
-                  name="readCommunity"
+                  name={`snmpv${version}.readCommunity`}
                   component={RFInput}
                   label="Read Community"
                   size="small"
@@ -48,7 +48,7 @@ class VersionConfig extends PureComponent {
               {version === '3' && (
                 <React.Fragment>
                   <Field
-                    name="securityOptions"
+                    name={`snmpv${version}.securityOptions`}
                     component={RFSelect}
                     placeholder="Select security option"
                     fluid
@@ -56,26 +56,26 @@ class VersionConfig extends PureComponent {
                     options={SECURITY_OPTIONS}
                   />
                   <Field
-                    name="contextName"
+                    name={`snmpv${version}.contextName`}
                     component={RFInput}
                     label="Context Name"
                     size="small"
                   />
                   <Field
-                    name="contextEngineID"
+                    name={`snmpv${version}.contextEngineID`}
                     component={RFInput}
                     label="Context Engine ID"
                     size="small"
                   />
                   <Form.Field className={styles.radioGroup}>
                     <Field
-                      name="authenticationAlgorithm.code"
+                      name={`snmpv${version}.authenticationAlgorithm.code`}
                       component={RFRadio}
                       options={ALGORITHMS}
                     />
                   </Form.Field>
                   <Field
-                    name="authenticationAlgorithm.password"
+                    name={`snmpv${version}.authenticationAlgorithm.password`}
                     component={RFInput}
                     label="Authentication Password"
                     size="small"
@@ -92,4 +92,5 @@ class VersionConfig extends PureComponent {
 
 export default reduxForm({
   form: 'snmpConfig',
+  destroyOnUnmount: false,
 })(VersionConfig);

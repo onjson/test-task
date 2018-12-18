@@ -15,4 +15,5 @@ const OptionsForm = () => (
 
 export default reduxForm({
   form: 'options',
+  destroyOnUnmount: false,
 })(OptionsForm);

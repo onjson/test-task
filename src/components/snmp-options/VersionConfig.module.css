@@ -7,3 +7,9 @@
   color: #55839F;
   font-weight: 500
 }
+
+@media(max-width: 768px) {
+  .radioGroup {
+    flex-direction: column;
+  }
+}

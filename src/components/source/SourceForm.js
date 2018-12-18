@@ -17,8 +17,8 @@ const SourceForm = ({ source, ipRangeError }) => (
       selection
       options={SOURCES}
     />
-    {source === 'CSV' && <FileLoader />}
-    {source === 'IP' && <IPInput name="ipAdress" label="IP" />}
+    {source === 'CSV' && <Field name="fileName" component={FileLoader} />}
+    {source === 'IP' && <IPInput name="ipAddress" label="IP" />}
     {source === 'IP Range' && <IPRange />}
     {ipRangeError && (
       <Message error header="IP Range Error" content={ipRangeError} />

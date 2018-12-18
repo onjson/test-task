@@ -7,9 +7,6 @@ import styles from './FileLoader.module.css';
 class FileLoader extends PureComponent {
   // eslint-disable-next-line
   input = React.createRef();
-  state = {
-    fileName: null,
-  };
 
   onClick = () => {
     this.input.current.click();
@@ -22,9 +19,10 @@ class FileLoader extends PureComponent {
     const file = e.target.files[0];
 
     reader.onloadend = () => {
-      this.setState({
-        fileName: file.name,
-      });
+      this.props.input.onChange(file.name);
+      // this.setState({
+      //   fileName: file.name,
+      // });
     };
 
     if (file instanceof Blob) {
@@ -32,24 +30,24 @@ class FileLoader extends PureComponent {
     }
   };
 
-  render = () => {
-    const { fileName } = this.state;
-
-    return (
-      <div>
-        <input
-          onChange={this.onUpload}
-          ref={this.input}
-          className={styles.input}
-          type="file"
-        />
-        <Button type="button" color="teal" onClick={this.onClick}>
-          Select a file...
-        </Button>
-        {fileName && <div>{fileName}</div>}
-      </div>
-    );
-  };
+  render = () => (
+    <div className={styles.wrapper}>
+      <input
+        onChange={this.onUpload}
+        ref={this.input}
+        className={styles.input}
+        type="file"
+      />
+      <Button type="button" color="teal" onClick={this.onClick}>
+        Select a file...
+      </Button>
+      {this.props.input.value && (
+        <div className={styles.file}>
+          Selected file: <i>{this.props.input.value}</i>
+        </div>
+      )}
+    </div>
+  );
 }
 
 export default FileLoader;

@@ -5,33 +5,23 @@ import { bindActionCreators } from 'redux';
 import get from 'lodash.get';
 
 import { IPInput } from './index';
-import {
-  validateIpRangeFailure,
-  validateIpRangeSuccess,
-} from '../../actions/actions';
+import { reduxFormActions } from '../../actions';
+import { utils } from '../../helpers';
+
+const { customValidateFailure, customValidateSuccess } = reduxFormActions;
 
 const message =
   'Starting IP address cannot be larger than the Ending IP Address.';
-
-const ip2int = (ip) =>
-  // eslint-disable-next-line
-  ip
-    .split('.')
-    .reduce((ipInt, octet) => 
-      // eslint-disable-next-line
-      (ipInt << 8) + parseInt(octet, 10),
-    0,
-  ) >>> 0;
 
 class IPRange extends PureComponent {
   componentDidUpdate = () => {
     const { isValidStartIP, isValidEndIP, startIP, endIP } = this.props;
 
     if (isValidStartIP && isValidEndIP) {
-      if (ip2int(startIP) < ip2int(endIP)) {
-        this.props.validateIpRangeSuccess();
+      if (utils.ip2int(startIP) < utils.ip2int(endIP)) {
+        this.props.customValidateSuccess('ipRange');
       } else {
-        this.props.validateIpRangeFailure(message);
+        this.props.customValidateFailure('ipRange', message);
       }
     }
   };
@@ -74,7 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchTopProps = (dispatch) =>
   bindActionCreators(
-    { validateIpRangeFailure, validateIpRangeSuccess },
+    { customValidateFailure, customValidateSuccess },
     dispatch,
   );
 
