@@ -34,7 +34,7 @@ class IPRange extends PureComponent {
     const { isValidStartIP, isValidEndIP, startIP, endIP } = this.props;
 
     if (isValidStartIP && isValidEndIP) {
-      if (utils.ip2int(startIP) < utils.ip2int(endIP)) {
+      if (utils.ip2int(startIP) <= utils.ip2int(endIP)) {
         this.props.customValidateSuccess('ipRange');
       } else {
         this.props.customValidateFailure('ipRange', message);
